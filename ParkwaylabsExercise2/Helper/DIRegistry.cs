@@ -21,7 +21,9 @@ namespace ParkwaylabsExercise2.Helper
                 .AddTransient<Developer_TechLeadManager>()
                 .AddTransient<IDeveloper_TechnologyRepository, Developer_TechnologyRepository>()
                 .AddTransient<IDeveloper_TechLeadRepository, Developer_TechLeadRepository>()
+                .AddTransient<ITechLead_TechnologyRepository, TechLead_TechnologyRepository>()
                 .AddTransient<IDeveloper_TechnologyManager, Developer_TechnologyManager>()
+                .AddTransient<ITechLead_TechnologyManager, TechLead_TechnologyManager>()
                 .AddTransient<TechLead_TechnologyManager>()
                 .AddTransient<TechLead_TechnologyRepository>();
                 
