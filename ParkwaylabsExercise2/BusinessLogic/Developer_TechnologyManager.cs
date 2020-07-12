@@ -1,4 +1,5 @@
 ﻿using ParkwaylabsExercise2.BusinessLogic.Interfaces;
+using ParkwaylabsExercise2.ModelFactory;
 using ParkwaylabsExercise2.Models;
 using ParkwaylabsExercise2.Repository;
 using ParkwaylabsExercise2.Repository.Interfaces;
@@ -16,9 +17,22 @@ namespace ParkwaylabsExercise2.BusinessLogic
         {
             _developer_TechnologyRepository = developer_TechnologyRepository;
         }
-        public async Task<List<Developer_Technology>> GetDeveloperByTechnology(string technologyName)
+        public async Task<List<ExpLevelWiseDeveloper>> GetDeveloperByTechnology(string technologyName)
         {
-            return await _developer_TechnologyRepository.GetDeveloperByTechnology(technologyName);
+            var result = await _developer_TechnologyRepository.GetDeveloperByTechnology(technologyName);
+
+            List<ExpLevelWiseDeveloper> expLevelWiseDeveloperList = new List<ExpLevelWiseDeveloper>();
+            foreach (var item in result)
+            {
+                ExpLevelWiseDeveloper expLevelWiseDeveloper = new ExpLevelWiseDeveloper()
+                {
+                    DeveloperName = item.Developer.Name,
+                    ExpLevel = item.ExpLevel
+                };
+                expLevelWiseDeveloperList.Add(expLevelWiseDeveloper);
+            }
+
+            return expLevelWiseDeveloperList;
         }
     }
 }

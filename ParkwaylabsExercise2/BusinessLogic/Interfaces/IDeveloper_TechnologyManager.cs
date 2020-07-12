@@ -1,4 +1,5 @@
-﻿using ParkwaylabsExercise2.Models;
+﻿using ParkwaylabsExercise2.ModelFactory;
+using ParkwaylabsExercise2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace ParkwaylabsExercise2.BusinessLogic.Interfaces
 {
     public interface IDeveloper_TechnologyManager
     {
-        Task<List<Developer_Technology>> GetDeveloperByTechnology(string technologyName);
+        Task<List<ExpLevelWiseDeveloper>> GetDeveloperByTechnology(string technologyName);
     }
 }

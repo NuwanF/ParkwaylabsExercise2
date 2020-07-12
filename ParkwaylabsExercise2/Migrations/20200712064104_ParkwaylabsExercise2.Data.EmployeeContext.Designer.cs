@@ -9,7 +9,7 @@ using ParkwaylabsExercise2.Data;
 namespace ParkwaylabsExercise2.Migrations
 {
     [DbContext(typeof(DevTeamDBContext))]
-    [Migration("20200711193640_ParkwaylabsExercise2.Data.EmployeeContext")]
+    [Migration("20200712064104_ParkwaylabsExercise2.Data.EmployeeContext")]
     partial class ParkwaylabsExercise2DataEmployeeContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

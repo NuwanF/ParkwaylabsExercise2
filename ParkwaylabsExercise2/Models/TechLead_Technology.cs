@@ -16,6 +16,7 @@ namespace ParkwaylabsExercise2.Models
         public int TechnologyId { get; set; }
 
         [Range(1, 10)]
+        [Required(ErrorMessage = "Field can not be blank")]
         public int ExpLevel { get; set; }
 
         public virtual TechLead TechLead { get; set; }
