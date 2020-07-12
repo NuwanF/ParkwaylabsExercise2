@@ -8,7 +8,6 @@ namespace ParkwaylabsExercise2.Repository.Interfaces
 {
     public interface IDeveloper_TechLeadRepository
     {
-        Task<List<Developer_TechLead>> GetByDevelperAndTechLeadAsync(
-            List<Developer_Technology> developer_TechnologyList, List<TechLead_Technology> techLead_TechnologyList);
+        Task<List<Developer_TechLead>> GetByDevelper(int developerId);
     }
 }

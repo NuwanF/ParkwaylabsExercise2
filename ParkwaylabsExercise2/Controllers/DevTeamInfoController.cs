@@ -23,18 +23,6 @@ namespace ParkwaylabsExercise2.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            var response = await _developer_TechnologyManager.GetDeveloperByTechnology("Tech1");
-            if (response != null && response.Count != 0)
-            {
-                return Ok(response);
-            }
-
-            return NotFound();
-        }
-
-        [HttpGet]
         [Route("GetDeveloperByTechnology/{technologyName?}")]
         public async Task<IActionResult> GetDeveloperByTechnology(string technologyName)
         {
