@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace ParkwaylabsExercise2.BusinessLogic
 {
-    public class Developer_TechnologyManager: IDeveloper_TechnologyManager
+    public class DeveloperTechnologyManager: IDeveloperTechnologyManager
     {
-        internal IDeveloper_TechnologyRepository _developer_TechnologyRepository;
-        public Developer_TechnologyManager(IDeveloper_TechnologyRepository developer_TechnologyRepository)
+        internal IDeveloperTechnologyRepository developerTechnologyRepository;
+        public DeveloperTechnologyManager(IDeveloperTechnologyRepository developerTechnologyRepository)
         {
-            _developer_TechnologyRepository = developer_TechnologyRepository;
+            this.developerTechnologyRepository = developerTechnologyRepository;
         }
         public async Task<List<ExpLevelWiseDeveloper>> GetDeveloperByTechnology(string technologyName)
         {
-            var result = await _developer_TechnologyRepository.GetDeveloperByTechnology(technologyName);
+            var result = await developerTechnologyRepository.GetDeveloperByTechnology(technologyName);
 
             List<ExpLevelWiseDeveloper> expLevelWiseDeveloperList = new List<ExpLevelWiseDeveloper>();
             foreach (var item in result)

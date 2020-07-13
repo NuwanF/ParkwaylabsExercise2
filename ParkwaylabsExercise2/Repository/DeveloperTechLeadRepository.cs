@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace ParkwaylabsExercise2.Repository
 {
-    public class Developer_TechLeadRepository: IDeveloper_TechLeadRepository
+    public class DeveloperTechLeadRepository: IDeveloperTechLeadRepository
     {
-        private readonly DevTeamDBContext _context;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly DevTeamDBContext context;
+        private readonly IUnitOfWork unitOfWork;
 
-        public Developer_TechLeadRepository(DevTeamDBContext context, IUnitOfWork unitOfWork)
+        public DeveloperTechLeadRepository(DevTeamDBContext context, IUnitOfWork unitOfWork)
         {
-            _context = context;
-            _unitOfWork = unitOfWork;
+            this.context = context;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<List<Developer_TechLead>> GetByDevelper(int developerId)
         {
-            return await _context.Developer_TechLead
+            return await context.Developer_TechLead
                         .Where(x => x.DeveloperId == developerId).ToListAsync();
 
         }

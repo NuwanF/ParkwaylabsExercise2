@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ParkwaylabsExercise2.Repository.Interfaces
 {
-    public interface IDeveloper_TechnologyRepository
+    public interface IDeveloperTechLeadRepository
     {
-        Task<List<Developer_Technology>> GetDeveloperByTechnology(string technologyName);
+        Task<List<Developer_TechLead>> GetByDevelper(int developerId);
     }
 }
