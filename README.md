@@ -8,7 +8,7 @@
 "update-database"
 ```
 * Run ParkwaylabsExercise2 project and you will find a Swagger UI, where you will find the required endpoints
-* Run test in Test Explora and you will find the result of the test cases
+* Run test in Test Explorer and you will find the result of the test cases
 
 ## Content
 In Swagger UI, 
@@ -16,7 +16,7 @@ In Swagger UI,
 * **GetExperiencedTechLeadByTechnology** refers to the second task
 * **GetExperiencedTechLeadByDeveloperTechnology** refers to the third task
 
-* In Test Explora, some sample test cases are added against all three endpoints
+* In Test Explorer, some sample test cases are added against all three endpoints
 
 ## Implementation and Best Practices
 * **Generic Repository Pattern** is used to minimize the repetition and have single base repository work for all type of data
