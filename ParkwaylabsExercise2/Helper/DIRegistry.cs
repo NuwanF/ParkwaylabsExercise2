@@ -18,15 +18,11 @@ namespace ParkwaylabsExercise2.Helper
 
                 .AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>))
                 .AddTransient<IUnitOfWork, UnitOfWork>()
-                .AddTransient<Developer_TechLeadManager>()
-                .AddTransient<IDeveloper_TechnologyRepository, Developer_TechnologyRepository>()
-                .AddTransient<IDeveloper_TechLeadRepository, Developer_TechLeadRepository>()
-                .AddTransient<ITechLead_TechnologyRepository, TechLead_TechnologyRepository>()
-                .AddTransient<IDeveloper_TechnologyManager, Developer_TechnologyManager>()
-                .AddTransient<ITechLead_TechnologyManager, TechLead_TechnologyManager>()
-                .AddTransient<TechLead_TechnologyManager>()
-                .AddTransient<TechLead_TechnologyRepository>();
-                
+                .AddTransient<IDeveloperTechnologyRepository, DeveloperTechnologyRepository>()
+                .AddTransient<IDeveloperTechLeadRepository, DeveloperTechLeadRepository>()
+                .AddTransient<ITechLeadTechnologyRepository, TechLeadTechnologyRepository>()
+                .AddTransient<IDeveloperTechnologyManager, DeveloperTechnologyManager>()
+                .AddTransient<ITechLeadTechnologyManager, TechLeadTechnologyManager>();                
 
             return services;
         }

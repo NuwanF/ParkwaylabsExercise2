@@ -12,33 +12,26 @@ namespace ParkwaylabsExercise2.Controllers
     [Route("[controller]")]
     public class DevTeamInfoController : ControllerBase
     {
-        internal IDeveloper_TechnologyManager _developer_TechnologyManager;
-        internal ITechLead_TechnologyManager _techLead_TechnologyManager;
+        internal IDeveloperTechnologyManager developerTechnologyManager;
+        internal ITechLeadTechnologyManager techLeadTechnologyManager;
 
-        public DevTeamInfoController(IDeveloper_TechnologyManager developer_TechnologyManager,
-            ITechLead_TechnologyManager techLead_TechnologyManager)
+        public DevTeamInfoController(IDeveloperTechnologyManager developerTechnologyManager,
+            ITechLeadTechnologyManager techLeadTechnologyManager)
         {
-            _developer_TechnologyManager = developer_TechnologyManager;
-            _techLead_TechnologyManager = techLead_TechnologyManager;
+            this.developerTechnologyManager = developerTechnologyManager;
+            this.techLeadTechnologyManager = techLeadTechnologyManager;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            var response = await _developer_TechnologyManager.GetDeveloperByTechnology("Tech1");
-            if (response != null && response.Count != 0)
-            {
-                return Ok(response);
-            }
-
-            return NotFound();
-        }
-
+        /// <summary>
+        /// Task 01: Most experienced developers by technology
+        /// </summary>
+        /// <param name="technologyName"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetDeveloperByTechnology/{technologyName?}")]
         public async Task<IActionResult> GetDeveloperByTechnology(string technologyName)
         {
-            var response = await _developer_TechnologyManager.GetDeveloperByTechnology(technologyName);
+            var response = await developerTechnologyManager.GetDeveloperByTechnology(technologyName);
             if (response != null && response.Count != 0)
             {
                 return Ok(response);
@@ -47,11 +40,16 @@ namespace ParkwaylabsExercise2.Controllers
             return NotFound();
         }
 
+        /// <summary>
+        /// Task 02: Most experienced Tech Leads by Technology
+        /// </summary>
+        /// <param name="technologyName"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetExperiencedTechLeadByTechnology/{technologyName?}")]
         public async Task<IActionResult> GetExperiencedTechLeadByTechnology(string technologyName)
         {
-            var response = await _techLead_TechnologyManager.GetExperiencedTechLeadByTechnology(technologyName);
+            var response = await techLeadTechnologyManager.GetExperiencedTechLeadByTechnology(technologyName);
             if (response != null && response.Count != 0)
             {
                 return Ok(response);
@@ -60,11 +58,17 @@ namespace ParkwaylabsExercise2.Controllers
             return NotFound();
         }
 
+        /// <summary>
+        /// Task 03: Most experienced Tech Leads by Developer and Technology  
+        /// </summary>
+        /// <param name="developerId"></param>
+        /// <param name="technologyId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetExperiencedTechLeadByDeveloperTechnology/{developerId?}/{technologyId?}")]
         public async Task<IActionResult> GetExperiencedTechLeadByDeveloperTechnology(int developerId, int technologyId)
         {
-            var response = await _techLead_TechnologyManager.GetExperiencedTechLeadByDeveloperTechnology(developerId, technologyId);
+            var response = await techLeadTechnologyManager.GetExperiencedTechLeadByDeveloperTechnology(developerId, technologyId);
 
             if (response != null || response.Count != 0)
             {
