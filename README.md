@@ -16,7 +16,7 @@ In Swagger UI,
 * **GetExperiencedTechLeadByTechnology** refers to the second task
 * **GetExperiencedTechLeadByDeveloperTechnology** refers to the third task
 
-* In Test Explorer, some sample test cases are added against all three endpoints
+In Test Explorer, some sample test cases are added against all three endpoints
 
 ## Implementation and Best Practices
 * **Generic Repository Pattern** is used to minimize the repetition and have single base repository work for all type of data
