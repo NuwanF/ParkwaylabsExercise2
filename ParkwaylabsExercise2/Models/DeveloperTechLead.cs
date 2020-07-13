@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ParkwaylabsExercise2.Models
 {
-    public class Developer_TechLead
+    public class DeveloperTechLead
     {
 
         [Key, Column(Order = 0)]

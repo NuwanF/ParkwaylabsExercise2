@@ -19,9 +19,9 @@ namespace ParkwaylabsExercise2.Repository
             this.context = context;
             this.unitOfWork = unitOfWork;
         }
-        public async Task<List<Developer_Technology>> GetDeveloperByTechnology(string technologyName)
+        public async Task<List<DeveloperTechnology>> GetDeveloperByTechnology(string technologyName)
         {
-            return await context.Developer_Technology
+            return await context.DeveloperTechnology
                 .Include(d => d.Developer)
                 .Include(n => n.Technology)
                 .Where(t => t.Technology.Name == technologyName).OrderByDescending(e => e.ExpLevel).ToListAsync();

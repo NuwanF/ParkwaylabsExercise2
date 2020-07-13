@@ -20,9 +20,9 @@ namespace ParkwaylabsExercise2.Repository
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<List<Developer_TechLead>> GetByDevelper(int developerId)
+        public async Task<List<DeveloperTechLead>> GetByDevelper(int developerId)
         {
-            return await context.Developer_TechLead
+            return await context.DeveloperTechLead
                         .Where(x => x.DeveloperId == developerId).ToListAsync();
 
         }

@@ -18,19 +18,19 @@ namespace ParkwaylabsExercise2.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Developer_TechLead>().HasKey(q => new
+            builder.Entity<DeveloperTechLead>().HasKey(q => new
             {
                 q.DeveloperId,
                 q.TechLeadId
             });
 
-            builder.Entity<Developer_Technology>().HasKey(q => new
+            builder.Entity<DeveloperTechnology>().HasKey(q => new
             {
                 q.DeveloperId,
                 q.TechnologyId
             });
 
-            builder.Entity<TechLead_Technology>().HasKey(q => new
+            builder.Entity<TechLeadTechnology>().HasKey(q => new
             {
                 q.TechLeadId,
                 q.TechnologyId
@@ -39,8 +39,8 @@ namespace ParkwaylabsExercise2.Data
         public DbSet<Developer> Developer { get; set; }
         public DbSet<TechLead> TechLead { get; set; }
         public DbSet<Technology> Technology { get; set; }
-        public DbSet<Developer_TechLead> Developer_TechLead { get; set; }
-        public DbSet<Developer_Technology> Developer_Technology { get; set; }
-        public DbSet<TechLead_Technology> TechLead_Technology { get; set; }
+        public DbSet<DeveloperTechLead> DeveloperTechLead { get; set; }
+        public DbSet<DeveloperTechnology> DeveloperTechnology { get; set; }
+        public DbSet<TechLeadTechnology> TechLeadTechnology { get; set; }
     }
 }

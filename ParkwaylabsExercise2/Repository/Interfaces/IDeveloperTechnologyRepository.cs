@@ -8,6 +8,6 @@ namespace ParkwaylabsExercise2.Repository.Interfaces
 {
     public interface IDeveloperTechnologyRepository
     {
-        Task<List<Developer_Technology>> GetDeveloperByTechnology(string technologyName);
+        Task<List<DeveloperTechnology>> GetDeveloperByTechnology(string technologyName);
     }
 }

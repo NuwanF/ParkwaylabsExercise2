@@ -14,9 +14,9 @@ namespace ParkwaylabsExercise2.Repository
         private BaseRepository<Developer> _developer;
         private BaseRepository<TechLead> _techLeads;
         private BaseRepository<Technology> _technologies;
-        private BaseRepository<Developer_TechLead> _developer_TechLeads;
-        private BaseRepository<Developer_Technology> _developer_Technologies;
-        private BaseRepository<TechLead_Technology> _techLead_Technologies;
+        private BaseRepository<DeveloperTechLead> _developer_TechLeads;
+        private BaseRepository<DeveloperTechnology> _developer_Technologies;
+        private BaseRepository<TechLeadTechnology> _techLead_Technologies;
 
         public UnitOfWork(DevTeamDBContext context)
         {
@@ -50,30 +50,30 @@ namespace ParkwaylabsExercise2.Repository
             }
         }
 
-        public IBaseRepository<Developer_TechLead> Developer_TechLeads
+        public IBaseRepository<DeveloperTechLead> Developer_TechLeads
         {
             get
             {
                 return _developer_TechLeads ??
-                    (_developer_TechLeads = new BaseRepository<Developer_TechLead>(_context));
+                    (_developer_TechLeads = new BaseRepository<DeveloperTechLead>(_context));
             }
         }
 
-        public IBaseRepository<Developer_Technology> Developer_Technologies
+        public IBaseRepository<DeveloperTechnology> Developer_Technologies
         {
             get
             {
                 return _developer_Technologies ??
-                    (_developer_Technologies = new BaseRepository<Developer_Technology>(_context));
+                    (_developer_Technologies = new BaseRepository<DeveloperTechnology>(_context));
             }
         }
 
-        public IBaseRepository<TechLead_Technology> TechLead_Technologies
+        public IBaseRepository<TechLeadTechnology> TechLead_Technologies
         {
             get
             {
                 return _techLead_Technologies ??
-                    (_techLead_Technologies = new BaseRepository<TechLead_Technology>(_context));
+                    (_techLead_Technologies = new BaseRepository<TechLeadTechnology>(_context));
             }
         }
 

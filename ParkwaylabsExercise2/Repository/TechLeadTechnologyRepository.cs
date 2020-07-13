@@ -27,7 +27,7 @@ namespace ParkwaylabsExercise2.Repository
         }
         public async Task<List<AverageScoreWiseTechLead>> GetExperiencedTechLeadByTechnology(string technologyName)
         {
-            var techLeadTechnologyList = await context.TechLead_Technology
+            var techLeadTechnologyList = await context.TechLeadTechnology
                 .Include(d => d.TechLead)
                 .Include(n => n.Technology)
                 .Where(t => t.Technology.Name == technologyName).OrderByDescending(e => e.ExpLevel).ToListAsync();
@@ -42,7 +42,7 @@ namespace ParkwaylabsExercise2.Repository
             List<AverageScoreWiseTechLead> averageScoreWiseTechLeadList = new List<AverageScoreWiseTechLead>();
             foreach (var techLeadTechnology in techLeadTechnologyList)
             {
-                var devList = context.Developer_TechLead.Where(x => x.TechLeadId == techLeadTechnology.TechLeadId).ToList();
+                var devList = context.DeveloperTechLead.Where(x => x.TechLeadId == techLeadTechnology.TechLeadId).ToList();
 
                 var exp = 0.00;
                 var devCount = 0;
@@ -84,7 +84,7 @@ namespace ParkwaylabsExercise2.Repository
         {
             var filteredDeveloperTechLeadList = await developerTechLeadRepository.GetByDevelper(developerId);
 
-            var techLeadTechnologyList = await context.TechLead_Technology
+            var techLeadTechnologyList = await context.TechLeadTechnology
                 .Include(d => d.TechLead)
                 .Where(t => t.Technology.TechnologyId == technologyId).OrderByDescending(e => e.ExpLevel).ToListAsync();
 
