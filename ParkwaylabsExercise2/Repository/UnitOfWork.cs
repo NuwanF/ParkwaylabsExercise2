@@ -10,25 +10,25 @@ namespace ParkwaylabsExercise2.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private DevTeamDBContext _context;
-        private BaseRepository<Developer> _developer;
-        private BaseRepository<TechLead> _techLeads;
-        private BaseRepository<Technology> _technologies;
-        private BaseRepository<DeveloperTechLead> _developer_TechLeads;
-        private BaseRepository<DeveloperTechnology> _developer_Technologies;
-        private BaseRepository<TechLeadTechnology> _techLead_Technologies;
+        private DevTeamDBContext context;
+        private BaseRepository<Developer> developer;
+        private BaseRepository<TechLead> techLeads;
+        private BaseRepository<Technology> technologies;
+        private BaseRepository<DeveloperTechLead> developerTechLeads;
+        private BaseRepository<DeveloperTechnology> developerTechnologies;
+        private BaseRepository<TechLeadTechnology> techLeadTechnologies;
 
         public UnitOfWork(DevTeamDBContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public IBaseRepository<Developer> Developers
         {
             get
             {
-                return _developer ??
-                    (_developer = new BaseRepository<Developer>(_context));
+                return developer ??
+                    (developer = new BaseRepository<Developer>(context));
             }
         }
 
@@ -36,8 +36,8 @@ namespace ParkwaylabsExercise2.Repository
         {
             get
             {
-                return _techLeads ??
-                    (_techLeads = new BaseRepository<TechLead>(_context));
+                return techLeads ??
+                    (techLeads = new BaseRepository<TechLead>(context));
             }
         }
 
@@ -45,41 +45,41 @@ namespace ParkwaylabsExercise2.Repository
         {
             get
             {
-                return _technologies ??
-                    (_technologies = new BaseRepository<Technology>(_context));
+                return technologies ??
+                    (technologies = new BaseRepository<Technology>(context));
             }
         }
 
-        public IBaseRepository<DeveloperTechLead> Developer_TechLeads
+        public IBaseRepository<DeveloperTechLead> DeveloperTechLeads
         {
             get
             {
-                return _developer_TechLeads ??
-                    (_developer_TechLeads = new BaseRepository<DeveloperTechLead>(_context));
+                return developerTechLeads ??
+                    (developerTechLeads = new BaseRepository<DeveloperTechLead>(context));
             }
         }
 
-        public IBaseRepository<DeveloperTechnology> Developer_Technologies
+        public IBaseRepository<DeveloperTechnology> DeveloperTechnologies
         {
             get
             {
-                return _developer_Technologies ??
-                    (_developer_Technologies = new BaseRepository<DeveloperTechnology>(_context));
+                return developerTechnologies ??
+                    (developerTechnologies = new BaseRepository<DeveloperTechnology>(context));
             }
         }
 
-        public IBaseRepository<TechLeadTechnology> TechLead_Technologies
+        public IBaseRepository<TechLeadTechnology> TechLeadTechnologies
         {
             get
             {
-                return _techLead_Technologies ??
-                    (_techLead_Technologies = new BaseRepository<TechLeadTechnology>(_context));
+                return techLeadTechnologies ??
+                    (techLeadTechnologies = new BaseRepository<TechLeadTechnology>(context));
             }
         }
 
         public void Commit()
         {
-            _context.SaveChanges();
+            context.SaveChanges();
         }
     }
 }

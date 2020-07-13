@@ -17,9 +17,9 @@ namespace ParkwaylabsExercise2.Models
         [Required(ErrorMessage = "Field can not be blank")]
         public string Name { get; set; }
 
-        public virtual ICollection<DeveloperTechLead> Developer_TechLeads { get; set; }
+        public virtual ICollection<DeveloperTechLead> DeveloperTechLeads { get; set; }
 
-        public virtual ICollection<TechLeadTechnology> TechLead_Technologies { get; set; }
+        public virtual ICollection<TechLeadTechnology> TechLeadTechnologies { get; set; }
 
     }
 }

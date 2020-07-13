@@ -9,7 +9,7 @@ using ParkwaylabsExercise2.Data;
 namespace ParkwaylabsExercise2.Migrations
 {
     [DbContext(typeof(DevTeamDBContext))]
-    [Migration("20200713081714_ParkwaylabsExercise2.Data.DevTeamDBContext")]
+    [Migration("20200713102741_ParkwaylabsExercise2.Data.DevTeamDBContext")]
     partial class ParkwaylabsExercise2DataDevTeamDBContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,13 +122,13 @@ namespace ParkwaylabsExercise2.Migrations
             modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechLead", b =>
                 {
                     b.HasOne("ParkwaylabsExercise2.Models.Developer", "Developer")
-                        .WithMany("Developer_TechLeads")
+                        .WithMany("DeveloperTechLeads")
                         .HasForeignKey("DeveloperId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ParkwaylabsExercise2.Models.TechLead", "TechLead")
-                        .WithMany("Developer_TechLeads")
+                        .WithMany("DeveloperTechLeads")
                         .HasForeignKey("TechLeadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -137,13 +137,13 @@ namespace ParkwaylabsExercise2.Migrations
             modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechnology", b =>
                 {
                     b.HasOne("ParkwaylabsExercise2.Models.Developer", "Developer")
-                        .WithMany("Developer_Technologies")
+                        .WithMany("DeveloperTechnologies")
                         .HasForeignKey("DeveloperId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ParkwaylabsExercise2.Models.Technology", "Technology")
-                        .WithMany("Developer_Technologies")
+                        .WithMany("DeveloperTechnologies")
                         .HasForeignKey("TechnologyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -152,13 +152,13 @@ namespace ParkwaylabsExercise2.Migrations
             modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLeadTechnology", b =>
                 {
                     b.HasOne("ParkwaylabsExercise2.Models.TechLead", "TechLead")
-                        .WithMany("TechLead_Technologies")
+                        .WithMany("TechLeadTechnologies")
                         .HasForeignKey("TechLeadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ParkwaylabsExercise2.Models.Technology", "Technology")
-                        .WithMany("TechLead_Technologies")
+                        .WithMany("TechLeadTechnologies")
                         .HasForeignKey("TechnologyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
