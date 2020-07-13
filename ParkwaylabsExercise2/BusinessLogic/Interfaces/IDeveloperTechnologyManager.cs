@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ParkwaylabsExercise2.BusinessLogic.Interfaces
 {
-    public interface IDeveloper_TechnologyManager
+    public interface IDeveloperTechnologyManager
     {
         Task<List<ExpLevelWiseDeveloper>> GetDeveloperByTechnology(string technologyName);
     }

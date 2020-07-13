@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace ParkwaylabsExercise2.BusinessLogic
 {
-    public class TechLead_TechnologyManager: ITechLead_TechnologyManager
+    public class TechLeadTechnologyManager: ITechLeadTechnologyManager
     {
-        internal ITechLead_TechnologyRepository _techLead_TechnologyRepository;
+        internal ITechLeadTechnologyRepository techLeadTechnologyRepository;
 
-        public TechLead_TechnologyManager(ITechLead_TechnologyRepository techLead_TechnologyRepository)
+        public TechLeadTechnologyManager(ITechLeadTechnologyRepository techLeadTechnologyRepository)
         {
-            _techLead_TechnologyRepository = techLead_TechnologyRepository;
+            this.techLeadTechnologyRepository = techLeadTechnologyRepository;
         }
 
         public async Task<List<AverageScoreWiseTechLead>> GetExperiencedTechLeadByTechnology(string technologyName)
         {
-            return await _techLead_TechnologyRepository.GetExperiencedTechLeadByTechnology(technologyName);
+            return await techLeadTechnologyRepository.GetExperiencedTechLeadByTechnology(technologyName);
         }
 
         public async Task<List<AverageScoreWiseTechLead>> GetExperiencedTechLeadByDeveloperTechnology
             (int developerId, int technologyId)
         {
-            return await _techLead_TechnologyRepository.GetExperiencedTechLeadByDeveloperTechnology
+            return await techLeadTechnologyRepository.GetExperiencedTechLeadByDeveloperTechnology
                 (developerId, technologyId);
         }
     }

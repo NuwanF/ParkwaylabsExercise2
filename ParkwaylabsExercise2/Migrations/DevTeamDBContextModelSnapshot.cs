@@ -34,7 +34,7 @@ namespace ParkwaylabsExercise2.Migrations
                     b.ToTable("Developer");
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.Developer_TechLead", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechLead", b =>
                 {
                     b.Property<int>("DeveloperId")
                         .HasColumnType("int");
@@ -46,10 +46,10 @@ namespace ParkwaylabsExercise2.Migrations
 
                     b.HasIndex("TechLeadId");
 
-                    b.ToTable("Developer_TechLead");
+                    b.ToTable("DeveloperTechLead");
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.Developer_Technology", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechnology", b =>
                 {
                     b.Property<int>("DeveloperId")
                         .HasColumnType("int");
@@ -64,7 +64,7 @@ namespace ParkwaylabsExercise2.Migrations
 
                     b.HasIndex("TechnologyId");
 
-                    b.ToTable("Developer_Technology");
+                    b.ToTable("DeveloperTechnology");
                 });
 
             modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLead", b =>
@@ -83,7 +83,7 @@ namespace ParkwaylabsExercise2.Migrations
                     b.ToTable("TechLead");
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLead_Technology", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLeadTechnology", b =>
                 {
                     b.Property<int>("TechLeadId")
                         .HasColumnType("int");
@@ -98,7 +98,7 @@ namespace ParkwaylabsExercise2.Migrations
 
                     b.HasIndex("TechnologyId");
 
-                    b.ToTable("TechLead_Technology");
+                    b.ToTable("TechLeadTechnology");
                 });
 
             modelBuilder.Entity("ParkwaylabsExercise2.Models.Technology", b =>
@@ -117,7 +117,7 @@ namespace ParkwaylabsExercise2.Migrations
                     b.ToTable("Technology");
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.Developer_TechLead", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechLead", b =>
                 {
                     b.HasOne("ParkwaylabsExercise2.Models.Developer", "Developer")
                         .WithMany("Developer_TechLeads")
@@ -132,7 +132,7 @@ namespace ParkwaylabsExercise2.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.Developer_Technology", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechnology", b =>
                 {
                     b.HasOne("ParkwaylabsExercise2.Models.Developer", "Developer")
                         .WithMany("Developer_Technologies")
@@ -147,7 +147,7 @@ namespace ParkwaylabsExercise2.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLead_Technology", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLeadTechnology", b =>
                 {
                     b.HasOne("ParkwaylabsExercise2.Models.TechLead", "TechLead")
                         .WithMany("TechLead_Technologies")

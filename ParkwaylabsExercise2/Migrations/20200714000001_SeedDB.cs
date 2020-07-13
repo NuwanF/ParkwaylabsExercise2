@@ -40,7 +40,7 @@ namespace ParkwaylabsExercise2.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Developer_TechLead",
+                table: "DeveloperTechLead",
                 columns: new[] { "DeveloperId", "TechLeadId" },
                 values: new object[,]
                 {
@@ -54,7 +54,7 @@ namespace ParkwaylabsExercise2.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 columns: new[] { "DeveloperId", "TechnologyId", "ExpLevel" },
                 values: new object[,]
                 {
@@ -70,7 +70,7 @@ namespace ParkwaylabsExercise2.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "TechLead_Technology",
+                table: "TechLeadTechnology",
                 columns: new[] { "TechLeadId", "TechnologyId", "ExpLevel" },
                 values: new object[,]
                 {
@@ -86,112 +86,112 @@ namespace ParkwaylabsExercise2.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DeleteData(
-                table: "Developer_TechLead",
+                table: "DeveloperTechLead",
                 keyColumns: new[] { "DeveloperId", "TechLeadId" },
                 keyValues: new object[] { 1, 1 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_TechLead",
+                table: "DeveloperTechLead",
                 keyColumns: new[] { "DeveloperId", "TechLeadId" },
                 keyValues: new object[] { 2, 2 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_TechLead",
+                table: "DeveloperTechLead",
                 keyColumns: new[] { "DeveloperId", "TechLeadId" },
                 keyValues: new object[] { 3, 3 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_TechLead",
+                table: "DeveloperTechLead",
                 keyColumns: new[] { "DeveloperId", "TechLeadId" },
                 keyValues: new object[] { 4, 2 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_TechLead",
+                table: "DeveloperTechLead",
                 keyColumns: new[] { "DeveloperId", "TechLeadId" },
                 keyValues: new object[] { 4, 3 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_TechLead",
+                table: "DeveloperTechLead",
                 keyColumns: new[] { "DeveloperId", "TechLeadId" },
                 keyValues: new object[] { 5, 1 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_TechLead",
+                table: "DeveloperTechLead",
                 keyColumns: new[] { "DeveloperId", "TechLeadId" },
                 keyValues: new object[] { 6, 2 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 keyColumns: new[] { "DeveloperId", "TechnologyId" },
                 keyValues: new object[] { 1, 1 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 keyColumns: new[] { "DeveloperId", "TechnologyId" },
                 keyValues: new object[] { 1, 2 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 keyColumns: new[] { "DeveloperId", "TechnologyId" },
                 keyValues: new object[] { 1, 3 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 keyColumns: new[] { "DeveloperId", "TechnologyId" },
                 keyValues: new object[] { 2, 2 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 keyColumns: new[] { "DeveloperId", "TechnologyId" },
                 keyValues: new object[] { 2, 3 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 keyColumns: new[] { "DeveloperId", "TechnologyId" },
                 keyValues: new object[] { 3, 2 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 keyColumns: new[] { "DeveloperId", "TechnologyId" },
                 keyValues: new object[] { 4, 2 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 keyColumns: new[] { "DeveloperId", "TechnologyId" },
                 keyValues: new object[] { 5, 2 });
 
             migrationBuilder.DeleteData(
-                table: "Developer_Technology",
+                table: "DeveloperTechnology",
                 keyColumns: new[] { "DeveloperId", "TechnologyId" },
                 keyValues: new object[] { 6, 2 });
 
             migrationBuilder.DeleteData(
-                table: "TechLead_Technology",
+                table: "TechLeadTechnology",
                 keyColumns: new[] { "TechLeadId", "TechnologyId" },
                 keyValues: new object[] { 1, 1 });
 
             migrationBuilder.DeleteData(
-                table: "TechLead_Technology",
+                table: "TechLeadTechnology",
                 keyColumns: new[] { "TechLeadId", "TechnologyId" },
                 keyValues: new object[] { 2, 1 });
 
             migrationBuilder.DeleteData(
-                table: "TechLead_Technology",
+                table: "TechLeadTechnology",
                 keyColumns: new[] { "TechLeadId", "TechnologyId" },
                 keyValues: new object[] { 2, 2 });
 
             migrationBuilder.DeleteData(
-                table: "TechLead_Technology",
+                table: "TechLeadTechnology",
                 keyColumns: new[] { "TechLeadId", "TechnologyId" },
                 keyValues: new object[] { 2, 3 });
 
             migrationBuilder.DeleteData(
-                table: "TechLead_Technology",
+                table: "TechLeadTechnology",
                 keyColumns: new[] { "TechLeadId", "TechnologyId" },
                 keyValues: new object[] { 3, 1 });
 
             migrationBuilder.DeleteData(
-                table: "TechLead_Technology",
+                table: "TechLeadTechnology",
                 keyColumns: new[] { "TechLeadId", "TechnologyId" },
                 keyValues: new object[] { 3, 3 });
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ParkwaylabsExercise2.Repository.Interfaces
 {
-    public interface ITechLead_TechnologyRepository
+    public interface ITechLeadTechnologyRepository
     {
         Task<List<AverageScoreWiseTechLead>> GetExperiencedTechLeadByTechnology(string technologyName);
 

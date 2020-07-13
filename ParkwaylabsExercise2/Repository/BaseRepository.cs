@@ -10,43 +10,43 @@ namespace ParkwaylabsExercise2.Repository
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        internal DevTeamDBContext _context;
-        internal DbSet<TEntity> _dbSet;
+        internal DevTeamDBContext context;
+        internal DbSet<TEntity> dbSet;
 
         public BaseRepository(DevTeamDBContext context)
         {
-            _context = context;
-            _dbSet = context.Set<TEntity>();
+            this.context = context;
+            dbSet = context.Set<TEntity>();
         }
 
         public virtual void Insert(TEntity entity)
         {
-            _dbSet.Add(entity);
+            dbSet.Add(entity);
         }
 
         public virtual void Update(TEntity entityToUpdate)
         {
-            _dbSet.Attach(entityToUpdate);
-            _context.Entry(entityToUpdate).State = EntityState.Modified;
+            dbSet.Attach(entityToUpdate);
+            context.Entry(entityToUpdate).State = EntityState.Modified;
         }
 
         public virtual void Delete(TEntity entityToDelete)
         {
-            if (_context.Entry(entityToDelete).State == EntityState.Detached)
+            if (context.Entry(entityToDelete).State == EntityState.Detached)
             {
-                _dbSet.Attach(entityToDelete);
+                dbSet.Attach(entityToDelete);
             }
-            _dbSet.Remove(entityToDelete);
+            dbSet.Remove(entityToDelete);
         }
 
         public virtual IEnumerable<TEntity> GetAll()
         {
-            return _dbSet.ToList();
+            return dbSet.ToList();
         }
 
         public virtual TEntity GetFirstOrDefault(object id)
         {
-            return _dbSet.Find(id);
+            return dbSet.Find(id);
         }
 
     }

@@ -2,7 +2,7 @@
 
 namespace ParkwaylabsExercise2.Migrations
 {
-    public partial class ParkwaylabsExercise2DataEmployeeContext : Migration
+    public partial class ParkwaylabsExercise2DataDevTeamDBContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,7 +46,7 @@ namespace ParkwaylabsExercise2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Developer_TechLead",
+                name: "DeveloperTechLead",
                 columns: table => new
                 {
                     DeveloperId = table.Column<int>(nullable: false),
@@ -54,15 +54,15 @@ namespace ParkwaylabsExercise2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Developer_TechLead", x => new { x.DeveloperId, x.TechLeadId });
+                    table.PrimaryKey("PK_DeveloperTechLead", x => new { x.DeveloperId, x.TechLeadId });
                     table.ForeignKey(
-                        name: "FK_Developer_TechLead_Developer_DeveloperId",
+                        name: "FK_DeveloperTechLead_Developer_DeveloperId",
                         column: x => x.DeveloperId,
                         principalTable: "Developer",
                         principalColumn: "DeveloperId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Developer_TechLead_TechLead_TechLeadId",
+                        name: "FK_DeveloperTechLead_TechLead_TechLeadId",
                         column: x => x.TechLeadId,
                         principalTable: "TechLead",
                         principalColumn: "TechLeadId",
@@ -70,7 +70,7 @@ namespace ParkwaylabsExercise2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Developer_Technology",
+                name: "DeveloperTechnology",
                 columns: table => new
                 {
                     DeveloperId = table.Column<int>(nullable: false),
@@ -79,15 +79,15 @@ namespace ParkwaylabsExercise2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Developer_Technology", x => new { x.DeveloperId, x.TechnologyId });
+                    table.PrimaryKey("PK_DeveloperTechnology", x => new { x.DeveloperId, x.TechnologyId });
                     table.ForeignKey(
-                        name: "FK_Developer_Technology_Developer_DeveloperId",
+                        name: "FK_DeveloperTechnology_Developer_DeveloperId",
                         column: x => x.DeveloperId,
                         principalTable: "Developer",
                         principalColumn: "DeveloperId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Developer_Technology_Technology_TechnologyId",
+                        name: "FK_DeveloperTechnology_Technology_TechnologyId",
                         column: x => x.TechnologyId,
                         principalTable: "Technology",
                         principalColumn: "TechnologyId",
@@ -95,7 +95,7 @@ namespace ParkwaylabsExercise2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TechLead_Technology",
+                name: "TechLeadTechnology",
                 columns: table => new
                 {
                     TechLeadId = table.Column<int>(nullable: false),
@@ -104,15 +104,15 @@ namespace ParkwaylabsExercise2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TechLead_Technology", x => new { x.TechLeadId, x.TechnologyId });
+                    table.PrimaryKey("PK_TechLeadTechnology", x => new { x.TechLeadId, x.TechnologyId });
                     table.ForeignKey(
-                        name: "FK_TechLead_Technology_TechLead_TechLeadId",
+                        name: "FK_TechLeadTechnology_TechLead_TechLeadId",
                         column: x => x.TechLeadId,
                         principalTable: "TechLead",
                         principalColumn: "TechLeadId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TechLead_Technology_Technology_TechnologyId",
+                        name: "FK_TechLeadTechnology_Technology_TechnologyId",
                         column: x => x.TechnologyId,
                         principalTable: "Technology",
                         principalColumn: "TechnologyId",
@@ -120,31 +120,31 @@ namespace ParkwaylabsExercise2.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Developer_TechLead_TechLeadId",
-                table: "Developer_TechLead",
+                name: "IX_DeveloperTechLead_TechLeadId",
+                table: "DeveloperTechLead",
                 column: "TechLeadId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Developer_Technology_TechnologyId",
-                table: "Developer_Technology",
+                name: "IX_DeveloperTechnology_TechnologyId",
+                table: "DeveloperTechnology",
                 column: "TechnologyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TechLead_Technology_TechnologyId",
-                table: "TechLead_Technology",
+                name: "IX_TechLeadTechnology_TechnologyId",
+                table: "TechLeadTechnology",
                 column: "TechnologyId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Developer_TechLead");
+                name: "DeveloperTechLead");
 
             migrationBuilder.DropTable(
-                name: "Developer_Technology");
+                name: "DeveloperTechnology");
 
             migrationBuilder.DropTable(
-                name: "TechLead_Technology");
+                name: "TechLeadTechnology");
 
             migrationBuilder.DropTable(
                 name: "Developer");

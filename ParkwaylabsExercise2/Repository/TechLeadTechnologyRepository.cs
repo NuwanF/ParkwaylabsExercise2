@@ -10,45 +10,45 @@ using System.Threading.Tasks;
 
 namespace ParkwaylabsExercise2.Repository
 {
-    public class TechLead_TechnologyRepository: ITechLead_TechnologyRepository
+    public class TechLeadTechnologyRepository: ITechLeadTechnologyRepository
     {
-        private readonly DevTeamDBContext _context;
-        private readonly IUnitOfWork _unitOfWork;
-        internal IDeveloper_TechnologyRepository _developer_TechnologyRepository;
-        internal IDeveloper_TechLeadRepository _developer_TechLeadRepository;
-        public TechLead_TechnologyRepository(DevTeamDBContext context, IUnitOfWork unitOfWork,
-            IDeveloper_TechnologyRepository developer_TechnologyRepository,
-            IDeveloper_TechLeadRepository developer_TechLeadRepository)
+        private readonly DevTeamDBContext context;
+        private readonly IUnitOfWork unitOfWork;
+        internal IDeveloperTechnologyRepository developerTechnologyRepository;
+        internal IDeveloperTechLeadRepository developerTechLeadRepository;
+        public TechLeadTechnologyRepository(DevTeamDBContext context, IUnitOfWork unitOfWork,
+            IDeveloperTechnologyRepository developerTechnologyRepository,
+            IDeveloperTechLeadRepository developerTechLeadRepository)
         {
-            _context = context;
-            _unitOfWork = unitOfWork;
-            _developer_TechnologyRepository = developer_TechnologyRepository;
-            _developer_TechLeadRepository = developer_TechLeadRepository;
+            this.context = context;
+            this.unitOfWork = unitOfWork;
+            this.developerTechnologyRepository = developerTechnologyRepository;
+            this.developerTechLeadRepository = developerTechLeadRepository;
         }
         public async Task<List<AverageScoreWiseTechLead>> GetExperiencedTechLeadByTechnology(string technologyName)
         {
-            var techLead_TechnologyList = await _context.TechLead_Technology
+            var techLeadTechnologyList = await context.TechLeadTechnology
                 .Include(d => d.TechLead)
                 .Include(n => n.Technology)
                 .Where(t => t.Technology.Name == technologyName).OrderByDescending(e => e.ExpLevel).ToListAsync();
 
-            if (techLead_TechnologyList.Count == 0)
+            if (techLeadTechnologyList.Count == 0)
             {
                 return null;
             }
 
-            var developer_TechnologyList = await _developer_TechnologyRepository.GetDeveloperByTechnology(technologyName);
+            var developerTechnologyList = await developerTechnologyRepository.GetDeveloperByTechnology(technologyName);
 
             List<AverageScoreWiseTechLead> averageScoreWiseTechLeadList = new List<AverageScoreWiseTechLead>();
-            foreach (var techLead_Technology in techLead_TechnologyList)
+            foreach (var techLeadTechnology in techLeadTechnologyList)
             {
-                var devList = _context.Developer_TechLead.Where(x => x.TechLeadId == techLead_Technology.TechLeadId).ToList();
+                var devList = context.DeveloperTechLead.Where(x => x.TechLeadId == techLeadTechnology.TechLeadId).ToList();
 
                 var exp = 0.00;
                 var devCount = 0;
                 foreach (var dev in devList)
                 {
-                    var devtech = developer_TechnologyList.Where(x => x.DeveloperId == dev.DeveloperId).FirstOrDefault();
+                    var devtech = developerTechnologyList.Where(x => x.DeveloperId == dev.DeveloperId).FirstOrDefault();
                     if (devtech != null)
                     {
                         exp = exp + devtech.ExpLevel;
@@ -60,8 +60,8 @@ namespace ParkwaylabsExercise2.Repository
                 {
                     AverageScoreWiseTechLead averageScoreWiseTechLead = new AverageScoreWiseTechLead()
                     {
-                        TechLeadName = techLead_Technology.TechLead.Name,
-                        AverageScore = (techLead_Technology.ExpLevel + (exp / devCount)) / 2
+                        TechLeadName = techLeadTechnology.TechLead.Name,
+                        AverageScore = (techLeadTechnology.ExpLevel + (exp / devCount)) / 2
                     };
                     averageScoreWiseTechLeadList.Add(averageScoreWiseTechLead);
                 }
@@ -69,8 +69,8 @@ namespace ParkwaylabsExercise2.Repository
                 {
                     AverageScoreWiseTechLead averageScoreWiseTechLead = new AverageScoreWiseTechLead()
                     {
-                        TechLeadName = techLead_Technology.TechLead.Name,
-                        AverageScore = techLead_Technology.ExpLevel
+                        TechLeadName = techLeadTechnology.TechLead.Name,
+                        AverageScore = techLeadTechnology.ExpLevel
                     };
                     averageScoreWiseTechLeadList.Add(averageScoreWiseTechLead);
                 }
@@ -82,22 +82,22 @@ namespace ParkwaylabsExercise2.Repository
         public async Task<List<AverageScoreWiseTechLead>> GetExperiencedTechLeadByDeveloperTechnology
             (int developerId, int technologyId)
         {
-            var filteredDeveloper_TechLeadList = await _developer_TechLeadRepository.GetByDevelper(developerId);
+            var filteredDeveloperTechLeadList = await developerTechLeadRepository.GetByDevelper(developerId);
 
-            var techLead_TechnologyList = await _context.TechLead_Technology
+            var techLeadTechnologyList = await context.TechLeadTechnology
                 .Include(d => d.TechLead)
                 .Where(t => t.Technology.TechnologyId == technologyId).OrderByDescending(e => e.ExpLevel).ToListAsync();
 
-            var filteredTechLead_TechnologyList = techLead_TechnologyList
-                .Where(x => filteredDeveloper_TechLeadList.Any(y => y.TechLeadId == x.TechLeadId)).ToList();
+            var filteredTechLeadTechnologyList = techLeadTechnologyList
+                .Where(x => filteredDeveloperTechLeadList.Any(y => y.TechLeadId == x.TechLeadId)).ToList();
 
             List<AverageScoreWiseTechLead> averageScoreWiseTechLeadList = new List<AverageScoreWiseTechLead>();
-            foreach (var techLead_Technology in filteredTechLead_TechnologyList)
+            foreach (var techLeadTechnology in filteredTechLeadTechnologyList)
             {
                 AverageScoreWiseTechLead averageScoreWiseTechLead = new AverageScoreWiseTechLead()
                 {
-                    TechLeadName = techLead_Technology.TechLead.Name,
-                    AverageScore = techLead_Technology.ExpLevel
+                    TechLeadName = techLeadTechnology.TechLead.Name,
+                    AverageScore = techLeadTechnology.ExpLevel
                 };
                 averageScoreWiseTechLeadList.Add(averageScoreWiseTechLead);
             }

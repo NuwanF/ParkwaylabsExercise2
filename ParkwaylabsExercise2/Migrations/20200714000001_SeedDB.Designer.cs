@@ -9,7 +9,7 @@ using ParkwaylabsExercise2.Data;
 namespace ParkwaylabsExercise2.Migrations
 {
     [DbContext(typeof(DevTeamDBContext))]
-    [Migration("20200713000001_SeedDB")]
+    [Migration("20200714000001_SeedDB")]
     partial class SeedDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,7 +68,7 @@ namespace ParkwaylabsExercise2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.Developer_TechLead", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechLead", b =>
                 {
                     b.Property<int>("DeveloperId")
                         .HasColumnType("int");
@@ -80,7 +80,7 @@ namespace ParkwaylabsExercise2.Migrations
 
                     b.HasIndex("TechLeadId");
 
-                    b.ToTable("Developer_TechLead");
+                    b.ToTable("DeveloperTechLead");
 
                     b.HasData(
                         new
@@ -120,7 +120,7 @@ namespace ParkwaylabsExercise2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.Developer_Technology", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechnology", b =>
                 {
                     b.Property<int>("DeveloperId")
                         .HasColumnType("int");
@@ -135,7 +135,7 @@ namespace ParkwaylabsExercise2.Migrations
 
                     b.HasIndex("TechnologyId");
 
-                    b.ToTable("Developer_Technology");
+                    b.ToTable("DeveloperTechnology");
 
                     b.HasData(
                         new
@@ -227,7 +227,7 @@ namespace ParkwaylabsExercise2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLead_Technology", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLeadTechnology", b =>
                 {
                     b.Property<int>("TechLeadId")
                         .HasColumnType("int");
@@ -242,7 +242,7 @@ namespace ParkwaylabsExercise2.Migrations
 
                     b.HasIndex("TechnologyId");
 
-                    b.ToTable("TechLead_Technology");
+                    b.ToTable("TechLeadTechnology");
 
                     b.HasData(
                         new
@@ -316,46 +316,46 @@ namespace ParkwaylabsExercise2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.Developer_TechLead", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechLead", b =>
                 {
                     b.HasOne("ParkwaylabsExercise2.Models.Developer", "Developer")
-                        .WithMany("Developer_TechLeads")
+                        .WithMany("DeveloperTechLeads")
                         .HasForeignKey("DeveloperId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ParkwaylabsExercise2.Models.TechLead", "TechLead")
-                        .WithMany("Developer_TechLeads")
+                        .WithMany("DeveloperTechLeads")
                         .HasForeignKey("TechLeadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.Developer_Technology", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.DeveloperTechnology", b =>
                 {
                     b.HasOne("ParkwaylabsExercise2.Models.Developer", "Developer")
-                        .WithMany("Developer_Technologies")
+                        .WithMany("DeveloperTechnologies")
                         .HasForeignKey("DeveloperId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ParkwaylabsExercise2.Models.Technology", "Technology")
-                        .WithMany("Developer_Technologies")
+                        .WithMany("DeveloperTechnologies")
                         .HasForeignKey("TechnologyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLead_Technology", b =>
+            modelBuilder.Entity("ParkwaylabsExercise2.Models.TechLeadTechnology", b =>
                 {
                     b.HasOne("ParkwaylabsExercise2.Models.TechLead", "TechLead")
-                        .WithMany("TechLead_Technologies")
+                        .WithMany("TechLeadTechnologies")
                         .HasForeignKey("TechLeadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ParkwaylabsExercise2.Models.Technology", "Technology")
-                        .WithMany("TechLead_Technologies")
+                        .WithMany("TechLeadTechnologies")
                         .HasForeignKey("TechnologyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
