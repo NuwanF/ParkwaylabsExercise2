@@ -22,6 +22,11 @@ namespace ParkwaylabsExercise2.Controllers
             this.techLeadTechnologyManager = techLeadTechnologyManager;
         }
 
+        /// <summary>
+        /// Task 01: Most experienced developers by technology
+        /// </summary>
+        /// <param name="technologyName"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetDeveloperByTechnology/{technologyName?}")]
         public async Task<IActionResult> GetDeveloperByTechnology(string technologyName)
@@ -35,6 +40,11 @@ namespace ParkwaylabsExercise2.Controllers
             return NotFound();
         }
 
+        /// <summary>
+        /// Task 02: Most experienced Tech Leads by Technology
+        /// </summary>
+        /// <param name="technologyName"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetExperiencedTechLeadByTechnology/{technologyName?}")]
         public async Task<IActionResult> GetExperiencedTechLeadByTechnology(string technologyName)
@@ -48,6 +58,12 @@ namespace ParkwaylabsExercise2.Controllers
             return NotFound();
         }
 
+        /// <summary>
+        /// Task 03: Most experienced Tech Leads by Developer and Technology  
+        /// </summary>
+        /// <param name="developerId"></param>
+        /// <param name="technologyId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetExperiencedTechLeadByDeveloperTechnology/{developerId?}/{technologyId?}")]
         public async Task<IActionResult> GetExperiencedTechLeadByDeveloperTechnology(int developerId, int technologyId)
