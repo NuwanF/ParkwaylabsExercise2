@@ -11,9 +11,9 @@ namespace ParkwaylabsExercise2.Repository.Interfaces
         IBaseRepository<Developer> Developers { get; }
         IBaseRepository<TechLead> TechLeads { get; }
         IBaseRepository<Technology> Technologies { get; }
-        IBaseRepository<DeveloperTechLead> Developer_TechLeads { get; }
-        IBaseRepository<DeveloperTechnology> Developer_Technologies { get; }
-        IBaseRepository<TechLeadTechnology> TechLead_Technologies { get; }
+        IBaseRepository<DeveloperTechLead> DeveloperTechLeads { get; }
+        IBaseRepository<DeveloperTechnology> DeveloperTechnologies { get; }
+        IBaseRepository<TechLeadTechnology> TechLeadTechnologies { get; }
         void Commit();
     }
 }
