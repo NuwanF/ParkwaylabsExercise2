@@ -1,7 +1,7 @@
 # Parkwaylabs Exercise 02
 
 ## Setup
-* Download the project and two projects are added under the ParkwaylabsExercise2 sollution
+* Download the ParkwaylabsExercise2 sollution which contains two projects
 * Change database connection strings in ParkwaylabsExercise2->appsettings.json file and ParkwaylabsExercise2_Test->appsettings.test.json file
 * Run below script in Package Manager Console to generate database with data
 ```bash
